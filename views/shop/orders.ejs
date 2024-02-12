@@ -1,0 +1,51 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="../css/order.css">
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <% if (orders.length <= 0) { %>
+        <h1>No Orders Yet!!</h1>
+        <% } else { %>
+        <div class="table-wrapper">
+            <table class="orders-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th class="name-header">Name</th>
+                        <th class="email-header">Invoice</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% let isEvenRow=false; %>
+                    <% orders.forEach(order => { %>
+                    <% let orderSectionClass="order-section-" + order._id; %>
+                    <% order.products.forEach((p, index) => { %>
+                    <tr class="<%= orderSectionClass %> <%= isEvenRow ? 'even-row' : 'odd-row' %>">
+                        <% if (index===0) { %>
+                        <td data-label="Order ID" rowspan="<%= order.products.length %>">#<%= order._id %></td>
+                        <% } %>
+                        <td data-label="Product"><%= p.product.title %></td>
+                        <td data-label="Quantity"><%= p.quantity %></td>
+                        <% if (index===0) { %>
+                        <td data-label="Name" rowspan="<%= order.products.length %>"><%= order.user.email %></td>
+                        <td data-label="Invoice" rowspan="<%= order.products.length %>"><a href="/orders/<%= order._id %>">Invoice</a></td>
+                        <% } %>
+                    </tr>
+                    <% }); %>
+                    <% isEvenRow=!isEvenRow; %>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+        <% } %>
+    </main>
+
+    <%- include('../includes/end.ejs') %>
+</body>
+
+</html>

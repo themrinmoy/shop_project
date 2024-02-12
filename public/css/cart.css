@@ -1,0 +1,182 @@
+/* General styles for both desktop and mobile */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.cart-container {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.cart-list {
+    list-style: none;
+    padding: 0;
+}
+
+.cart-item {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-info {
+    /* Product name on the left corner */
+    display: flex;
+    align-items: center;
+}
+
+.product-title {
+    font-size: 1.3em;
+    margin-bottom: 5px;
+    font-weight: bold;
+    /* Make the text bolder */
+}
+
+.product-image {
+    max-width: 80px;
+    /* Adjusted maximum width */
+    max-height: 80px;
+    /* Adjusted maximum height */
+    margin-right: 10px;
+    /* Added right margin */
+}
+
+.quantity-and-remove {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-right: 10px; */
+    /* Added right margin to the quantity section */
+}
+
+.product-quantity {
+    text-align: center;
+    /* Quantity in the center */
+    font-weight: bold;
+    margin-right: 1rem;
+    /* Make the text bolder */
+}
+
+.delete-button {
+    background-color: #ff6347;
+    /* Default button color */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    /* Make the text bolder */
+
+    /* Hover effect */
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #d2383d;
+    /* Hover color */
+}
+
+.empty-cart-message {
+    text-align: center;
+    margin-top: 20px;
+    color: #555;
+}
+
+/* Desktop-specific styles */
+
+@media (min-width: 769px) {
+    .total-section {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .total-price {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .order-button {
+        background-color: #474F7A;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .order-button:hover {
+        background-color: #0C2D57;
+    }
+}
+
+/* Mobile-specific styles */
+
+@media (max-width: 768px) {
+    .total-section {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .total-price {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .order-button {
+        background-color: #474F7A;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-bottom: 20px; /* Added bottom margin for spacing */
+    }
+    .quantity-and-remove {
+        /* margin-right: 0px; Removed right margin */
+        display: block;
+
+
+    }
+
+    .product-quantity {
+        margin-right: 0px; /* Removed right margin */
+        margin-bottom: 10px; /* Added bottom margin for spacing */
+    }
+
+    .delete-button {
+        margin-bottom: 10px; /* Added bottom margin for spacing */
+    }
+
+    .product-info {
+        display: block;
+    }
+
+    .product-image {
+        margin: 0 auto 10px auto;
+        display: block;
+    }
+
+    .product-title {
+        text-align: center;
+    }
+}

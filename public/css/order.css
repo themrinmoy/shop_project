@@ -1,0 +1,49 @@
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.orders-table th,
+.orders-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.orders-table th {
+    background-color: #ffb400;
+    color: #fff;
+}
+
+.even-row,
+.odd-row {
+    background-color: #ffffff;
+}
+
+.name-header,
+.name-cell,
+.email-header,
+.email-cell {
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+    .orders-table th,
+    .orders-table td {
+        padding: 8px;
+    }
+}

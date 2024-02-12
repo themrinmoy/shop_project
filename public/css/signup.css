@@ -1,0 +1,118 @@
+/* signup.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.signup {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.signup__title {
+    text-align: center;
+    color: #333;
+}
+
+.signup__form {
+    margin-top: 20px;
+}
+
+.signup__label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    text-align: left;
+    padding-left: 8px;
+    /* Align labels to the left */
+}
+
+.signup__input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.btn--signup {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn--signup:hover {
+    background-color: #45a049;
+}
+
+
+input:invalid {
+    border: 1px solid red !important;
+    /* border: solid red; */
+
+}
+/* .invalid{
+    color: red;
+    border: 1px solid red !important;
+    /* font-size: 12px;
+    margin-left: 8px;
+    margin-top: 5px; */
+    /* display: block; */
+/* } */ 
+
+.form-control input.invalid {
+    border-color: red;
+    border: 1px solid red !important;
+}
+
+.invalid{
+    /* color: red; */
+    border: 1px solid red !important;
+    /* font-size: 12px; */
+    /* margin-left: 8px; */
+    /* margin-top: 5px; */
+    /* display: block; */
+}
+
+/* input[password]:invalid {
+    border: 1px solid red;
+    /* border: solid red; */
+
+
+.signup__input[type="password"]:invalid {
+        border: 1px solid red !important;
+    }
+
+input[type="password"]:invalid {
+    border: 1px solid red;
+    /* border: solid red; */
+ }
+
+
+/* Add this rule to apply red border for invalid password fields */
+/* .signup__input[type="password"]:invalid {
+    border: 1px solid red;
+} */
+
+/* Additional styling for general input fields */
+/* .signup__input {
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.signup__input:focus {
+    border-color: #333;
+} */
+

@@ -1,0 +1,114 @@
+/* login.css */
+
+/* Styles for the login container */
+.login {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    /* border: 1px solid #cf1d1d; */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.login__title{
+    text-align: center;
+    /* font-size: 20px; */
+    font-weight: bold;
+    margin-bottom: 20px;
+
+}
+
+.login__text{
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+
+/* Styles for the login form */
+.login__form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Styles for labels in the login form */
+.login__label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Styles for input fields in the login form */
+.login__input {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* Styles for the login button */
+.btn--login {
+    padding: 12px;
+    background-color: #0e5eb3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn--logout {
+    padding: 12px;
+    background-color: #0e5eb3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn--logout:hover {
+    background-color: #094c8e;
+}
+
+/* Hover styles for the login button */
+.btn--login:hover {
+    background-color: #094c8e;
+}
+
+.btn--reset {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #0e5eb3;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Hover styles for the reset password link */
+.btn--reset:hover {
+    color: #094c8e;
+}
+
+
+input.invalid {
+    border-color: red;
+    border: 1px solid red !important;
+}
+.invalid{
+    /* color: red; */
+    border: 1px solid red !important;
+    /* font-size: 12px; */
+    /* margin-left: 8px; */
+    /* margin-top: 5px; */
+    /* display: block; */
+}
+
+.form-control input.invalid {
+    border-color: red;
+    border: 1px solid red !important;
+}
+

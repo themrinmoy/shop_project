@@ -1,0 +1,93 @@
+<%- include('../includes/head.ejs') %>
+    </head>
+
+    <body>
+
+        <%- include('../includes/navigation.ejs') %>
+
+            <main>
+
+
+
+                            <link rel="stylesheet" href="../css/checkout.css">
+                            <div class="checkout-container">
+                                <h2 class="headingcheckout">Checkout</h2>
+                            
+                                <!-- Product Details -->
+                                <% if (products && products.length> 0) { %>
+                                    <div class="product-list">
+                                        <% products.forEach((product, index)=> { %>
+                                            <div class="product-item" id="product<%= index + 1 %>">
+                                                <img src="<%= product.productId.imageUrl %>" alt="<%= product.productId.title %>">
+                                                <div class="product-info">
+                                                    <h3 class="product-name">
+                                                        <%= product.productId.title %>
+                                                    </h3>
+                                                    <p class="product-quantity">Quantity: <%= product.quantity %>
+                                                    </p>
+                                                    <p class="product-price">Price: ₹<%= product.productId.price.toFixed(2) %>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <% }) %>
+                                    </div>
+                            
+                                    <!-- Total Sum -->
+                                    <div class="total-sum">
+                                        <p>Total: $<%= totalSum.toFixed(2) %>
+                                        </p>
+                                    </div>
+                            
+                                    <!-- Shipping Information Form -->
+                                    <div class="shipping-info">
+                                        <h3>Shipping Information</h3>
+                                        <!-- add some dummy infomation in solid text -->
+                                        <p>
+                                            <strong>Full Name:</strong> John Doe
+                            
+                                            <br>
+                            
+                                            <strong>Address:</strong> 1234 Main Street, New York, NY 10001
+                                            <br>
+                                            <strong>Email: </strong>test@test.com
+                            
+                                        </p>
+                                        </form>
+                            
+                                    </div>
+                                    <br>
+                                    <br>
+
+
+         
+
+
+
+
+                <div class="centered">
+                    <button id="order-btn" class="btn">ORDER</button>
+                    <script src="https://js.stripe.com/v3/"></script>
+                    <script>
+                        var stripe = Stripe('pk_test_51OaQJHSJMzEXtTp5wyVjLtxG1HR5owr2fy786eE8O1h60aTBiDqcHcnNu0vx6m8RoebDmYPOgXe0A9pBq6X7SBUp00mSNKCVkp');
+                        var orderBtn = document.getElementById('order-btn');
+                        orderBtn.addEventListener('click', function () {
+                            stripe.redirectToCheckout({
+                                sessionId: '<%= sessionId %>'
+                            });
+                        });
+                    </script>
+                </div>
+
+                <% } else { %>
+                    <h2 class="headingcheckout">No products in your cart!</h2>
+                    <div class="centered">
+                        <a href="/shop" class="btn">Go to Shop</a>
+                    </div>
+                    <% } %>
+
+            </main>
+
+            <%- include('../includes/end.ejs') %>
+    </body>
+
+    </html>

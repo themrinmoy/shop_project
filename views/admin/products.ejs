@@ -1,0 +1,54 @@
+<%- include('../includes/head.ejs') %>
+
+    </head>
+
+    <body>
+
+        <%- include('../includes/navigation.ejs') %>
+
+            <main>
+                <link rel="stylesheet" href="../css/product.css">
+
+                <% if (prods.length> 0) { %>
+                    <div class="grid">
+                        <% for (let product of prods) { %>
+                            <article class="card">
+                                <header class="card__header">
+                                    <h1 class="product_title">
+                                        <%= product.title %>
+                                    </h1>
+                                </header>
+                                <div class="card__image">
+                                    <img src="/<%= product.imageUrl %>" alt="${product.title}"
+                                        style="width: 100%; max-width: 200px; height: auto;">
+                                </div>
+                                <div class="card__content">
+                                    <h2 class="product__price">₹<%= product.price %>
+                                    </h2>
+                                    <p class="product__description">
+                                        <%= product.description %>
+                                    </p>
+                                </div>
+                                <div class="card__actions">
+                                    <a href="/admin/edit-product/<%= product._id %>?edit=true " class="btn"> Edit</a>
+                                    <input type="hidden" value="<%= product._id %>" name="productId">
+                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                    
+                                    <button class="btn" type="button" onclick="deleteProduct(this)">Delete</button>
+
+                                </div>
+                            </article>
+                            <% } %>
+                    </div>
+
+                    <% } else { %>
+                        <h1>No Products Found</h1>
+                        <% } %>
+            </main>
+
+            <!-- Add other scripts or footer content as needed -->
+            <%- include('../includes/end.ejs') %>
+
+                <script src="/js/admin.js"></script>
+                <!-- <script src="../js/admin.js"></script> -->
+                <!-- <script src="../../public/js/admin.js"></script> -->

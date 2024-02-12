@@ -1,0 +1,49 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="../css/cart.css">
+</head>
+
+<body>
+
+    <%- include('../includes/navigation.ejs') %>
+    <main class="cart-container">
+        <% if (products.length > 0) { %>
+
+        <ul class="cart-list">
+            <% let totalPrice = 0; %>
+            <% products.forEach(p => { %>
+            <li class="cart-item">
+                <div class="product-info">
+                    <img src="/<%= p.productId.imageUrl %>" alt="<%= p.productId.title %>" class="product-image">
+                    <h1 class="product-title">
+                        <%= p.productId.title %>
+                    </h1>
+                </div>
+
+                <div class="quantity-and-remove">
+                    <p class="product-quantity">Quantity: <%= p.quantity %></p>
+                    <p class="product-quantity">Price: ₹<%= p.productId.price %></p>
+                    <% totalPrice += p.quantity * p.productId.price; %>
+
+                    <form action="/cart-delete-item" method="POST" class="remove-form">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <input type="hidden" name="productId" value="<%= p.productId._id %>">
+                        <button class="delete-button" type="submit">Remove</button>
+                    </form>
+                </div>
+            </li>
+            <% }); %>
+        </ul>
+
+        <div class="total-section">
+            <p class="total-price">Total Price: ₹<%= totalPrice.toFixed(2) %></p>
+            <a class="order-button" href="/checkout">Order Now!</a>
+        </div>
+
+        <% } else { %>
+        <h1 class="empty-cart-message">No Products in Cart!!</h1>
+        <% } %>
+    </main>
+    <%- include('../includes/end.ejs') %>
+</body>
+
+</html>
